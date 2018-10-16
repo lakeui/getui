@@ -128,13 +128,13 @@ class GTConfig
     private static function getProperty($key, $oldKey, $defaultValue = null)
     {
         $value = getenv($key);
-        if ($value !== null) {
+        if (!empty($value)) {
             return $value;
         } else {
             if ($oldKey !== null) {
                 $value = getenv($oldKey);
             }
-            if ($value === null) {
+            if (empty($value)) {
                 return $defaultValue;
             } else {
                 return $value;
